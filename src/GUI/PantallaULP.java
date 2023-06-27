@@ -118,6 +118,8 @@ public class PantallaULP extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         salaLabel = new javax.swing.JLabel();
         numSalaLabel = new javax.swing.JLabel();
+        cambiarSala = new javax.swing.JButton();
+        helpAbout = new javax.swing.JLabel();
         pLateral = new javax.swing.JPanel();
         totalPulsos = new javax.swing.JLabel();
         pulsosTexto = new javax.swing.JLabel();
@@ -183,7 +185,18 @@ public class PantallaULP extends javax.swing.JFrame {
         numSalaLabel.setForeground(new java.awt.Color(102, 102, 102));
         numSalaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         numSalaLabel.setText("00");
+        numSalaLabel.setToolTipText("Cada sala tiene ventajas y desventajas diferentes.");
         numSalaLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        cambiarSala.setText("jButton2");
+
+        helpAbout.setForeground(new java.awt.Color(51, 102, 255));
+        helpAbout.setText("?");
+        helpAbout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                helpAboutMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout pPrincipalLayout = new javax.swing.GroupLayout(pPrincipal);
         pPrincipal.setLayout(pPrincipalLayout);
@@ -203,6 +216,10 @@ public class PantallaULP extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(eventosRPulsos)
                         .addGap(17, 17, 17))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(helpAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pPrincipalLayout.createSequentialGroup()
@@ -216,21 +233,26 @@ public class PantallaULP extends javax.swing.JFrame {
                         .addGap(303, 303, 303)
                         .addComponent(salaLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(numSalaLabel)))
+                        .addComponent(numSalaLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cambiarSala, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pPrincipalLayout.setVerticalGroup(
             pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pPrincipalLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(11, 11, 11)
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(salaLabel)
-                    .addComponent(numSalaLabel))
-                .addGap(41, 41, 41)
+                    .addComponent(numSalaLabel)
+                    .addComponent(cambiarSala))
+                .addGap(40, 40, 40)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(progresoBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(277, 277, 277)
+                .addGap(243, 243, 243)
+                .addComponent(helpAbout)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -683,10 +705,18 @@ public class PantallaULP extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_compartirPantaActionPerformed
 
+    private void helpAboutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpAboutMouseClicked
+        // TODO add your handling code here:
+        Ventanita help = new Ventanita();
+        help.setVisible(true);
+        help.setLocationRelativeTo(this);
+    }//GEN-LAST:event_helpAboutMouseClicked
+
     /**
          * @param args the command line arguments
          */
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cambiarSala;
     private javax.swing.JPasswordField cheatInput;
     private javax.swing.JButton compartirPanta;
     private javax.swing.JButton comprarAClasess;
@@ -704,6 +734,7 @@ public class PantallaULP extends javax.swing.JFrame {
     private javax.swing.JLabel costoPantalla1;
     private javax.swing.JLabel eventosRPulsos;
     private javax.swing.JLabel eventosRandomLabel;
+    private javax.swing.JLabel helpAbout;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
