@@ -19,6 +19,7 @@ import javax.swing.plaf.ProgressBarUI;
 public class PantallaULP extends javax.swing.JFrame {
 
     private int pulsos = 10;
+    private String activado="Activado!";
     private boolean camaraOn=false, microfonoOn=false, screenOn=false;
     private boolean aprenderClases, aprenderRelaciones, aprenderHerencia, aprenderColecciones, eventooosRandom;
     private String[] directivos = {"Dir. Carlos Palloti", "Profe Hugo", "Coach Andrea Muñoz", ""};
@@ -115,6 +116,8 @@ public class PantallaULP extends javax.swing.JFrame {
         eventosRPulsos = new javax.swing.JLabel();
         eventosRandomLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        salaLabel = new javax.swing.JLabel();
+        numSalaLabel = new javax.swing.JLabel();
         pLateral = new javax.swing.JPanel();
         totalPulsos = new javax.swing.JLabel();
         pulsosTexto = new javax.swing.JLabel();
@@ -130,7 +133,6 @@ public class PantallaULP extends javax.swing.JFrame {
         cheatInput = new javax.swing.JPasswordField();
         okCheat = new javax.swing.JButton();
         comprarEventosR = new javax.swing.JButton();
-        descripEventosR = new javax.swing.JLabel();
         costoEventosR = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         prenderMic = new javax.swing.JButton();
@@ -173,18 +175,20 @@ public class PantallaULP extends javax.swing.JFrame {
         eventosRandomLabel.setForeground(new java.awt.Color(102, 102, 102));
         eventosRandomLabel.setText("Sin Eventos");
 
+        salaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        salaLabel.setText("Sala:");
+        salaLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        numSalaLabel.setFont(new java.awt.Font("Poppins ExtraBold", 0, 12)); // NOI18N
+        numSalaLabel.setForeground(new java.awt.Color(102, 102, 102));
+        numSalaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        numSalaLabel.setText("00");
+        numSalaLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout pPrincipalLayout = new javax.swing.GroupLayout(pPrincipal);
         pPrincipal.setLayout(pPrincipalLayout);
         pPrincipalLayout.setHorizontalGroup(
             pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pPrincipalLayout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pPrincipalLayout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(jButton1))
-                    .addComponent(progresoBar, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,11 +203,30 @@ public class PantallaULP extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(eventosRPulsos)
                         .addGap(17, 17, 17))))
+            .addGroup(pPrincipalLayout.createSequentialGroup()
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pPrincipalLayout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(progresoBar, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pPrincipalLayout.createSequentialGroup()
+                                .addGap(138, 138, 138)
+                                .addComponent(jButton1))))
+                    .addGroup(pPrincipalLayout.createSequentialGroup()
+                        .addGap(303, 303, 303)
+                        .addComponent(salaLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(numSalaLabel)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pPrincipalLayout.setVerticalGroup(
             pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pPrincipalLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addGap(15, 15, 15)
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(salaLabel)
+                    .addComponent(numSalaLabel))
+                .addGap(41, 41, 41)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(progresoBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -297,15 +320,13 @@ public class PantallaULP extends javax.swing.JFrame {
         });
 
         comprarEventosR.setText("Eventos Random");
+        comprarEventosR.setToolTipText("Genera eventos aleatorios con buena o mala fortuna.");
         comprarEventosR.setEnabled(false);
         comprarEventosR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comprarEventosRActionPerformed(evt);
             }
         });
-
-        descripEventosR.setForeground(new java.awt.Color(102, 102, 102));
-        descripEventosR.setText("Genera eventos aleatorios con buena o mala fortuna.");
 
         costoEventosR.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
         costoEventosR.setForeground(new java.awt.Color(102, 102, 102));
@@ -405,17 +426,20 @@ public class PantallaULP extends javax.swing.JFrame {
                                 .addGap(225, 225, 225)
                                 .addComponent(pulsosTexto))
                             .addGroup(pLateralLayout.createSequentialGroup()
-                                .addGap(73, 73, 73)
-                                .addGroup(pLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(comprarEventosR, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(descripEventosR)
-                                    .addComponent(costoEventosR)
-                                    .addComponent(costoMic, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(193, 193, 193)
+                                .addComponent(costoMic, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(90, 90, 90))
             .addGroup(pLateralLayout.createSequentialGroup()
-                .addGap(157, 157, 157)
-                .addComponent(totalPulsos, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pLateralLayout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(totalPulsos, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pLateralLayout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addGroup(pLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(comprarEventosR, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(costoEventosR))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pLateralLayout.setVerticalGroup(
@@ -453,17 +477,16 @@ public class PantallaULP extends javax.swing.JFrame {
                     .addComponent(compartirPanta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(prenderCamara1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(costoMic, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(costoCamara1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(costoPantalla1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(106, 106, 106)
+                    .addGroup(pLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(costoCamara1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(costoPantalla1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(31, 31, 31)
                 .addComponent(comprarEventosR, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(descripEventosR, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(costoEventosR, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(150, 150, 150)
+                .addGap(247, 247, 247)
                 .addGroup(pLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cheatInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -503,6 +526,7 @@ public class PantallaULP extends javax.swing.JFrame {
     private void comprarEventosRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarEventosRActionPerformed
         // TODO add your handling code here:
         if(eventooosRandom==false){
+           comprarEventosR.setText(activado);
             eventooosRandom = true;
             pulsos-=50;
             Timer timef = new Timer(6500, new ActionListener() {
@@ -580,6 +604,7 @@ public class PantallaULP extends javax.swing.JFrame {
     private void comprarAColeccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarAColeccionesActionPerformed
         // TODO add your handling code here:
         if(aprenderColecciones==false){
+            comprarAColecciones.setText(activado);
             aprenderColecciones=true;
             pulsos-=600;
         }
@@ -588,6 +613,7 @@ public class PantallaULP extends javax.swing.JFrame {
     private void comprarAHerenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarAHerenciaActionPerformed
         // TODO add your handling code here:
         if (aprenderHerencia == false) {
+            comprarAHerencia.setText(activado);
             aprenderHerencia = true;
             pulsos = pulsos - 400;
         }
@@ -596,6 +622,7 @@ public class PantallaULP extends javax.swing.JFrame {
     private void comprarARelacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarARelacionesActionPerformed
         // TODO add your handling code here:
         if (aprenderRelaciones == false) {
+            comprarARelaciones.setText(activado);
             aprenderRelaciones = true;
             pulsos = pulsos - 200;
             Timer timee = new Timer(2000, new ActionListener() {
@@ -621,6 +648,7 @@ public class PantallaULP extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (aprenderClases == false) {
             aprenderClases = true;
+            comprarAClasess.setText(activado);
             pulsos = pulsos - 100;
             Timer timex = new Timer(1000, new ActionListener() {
                 @Override
@@ -674,7 +702,6 @@ public class PantallaULP extends javax.swing.JFrame {
     private javax.swing.JLabel costoEventosR;
     private javax.swing.JLabel costoMic;
     private javax.swing.JLabel costoPantalla1;
-    private javax.swing.JLabel descripEventosR;
     private javax.swing.JLabel eventosRPulsos;
     private javax.swing.JLabel eventosRandomLabel;
     private javax.swing.JButton jButton1;
@@ -682,6 +709,7 @@ public class PantallaULP extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel numSalaLabel;
     private javax.swing.JButton okCheat;
     private javax.swing.JPanel pLateral;
     private javax.swing.JPanel pPrincipal;
@@ -689,6 +717,7 @@ public class PantallaULP extends javax.swing.JFrame {
     private javax.swing.JButton prenderMic;
     private javax.swing.JProgressBar progresoBar;
     private javax.swing.JLabel pulsosTexto;
+    private javax.swing.JLabel salaLabel;
     private javax.swing.JLabel totalPulsos;
     // End of variables declaration//GEN-END:variables
 }
